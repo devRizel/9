@@ -127,20 +127,20 @@
         <div data-role="content" class="animated-heading">
             <input id="searchInput" list="searchOptions" placeholder="Search..." />
             <datalist id="searchOptions">
-                <option value="Main Dish">
-                <option value="Food">
-                <option value="Beef Steak">
-                <option value="Sea Foods">
+                <option value="Rice Meal">
+                <option value="Silog">
+                <option value="Snack">
+                <option value="Drinks">
               </datalist>
               <script>
                 const input = document.getElementById('searchInput');
                 input.addEventListener('change', () => {
                   const value = input.value;
                   const links = {
-                    "Main Dish": "maindish2.html",
-                    "Food": "food2.html",
-                    "Beef Steak": "beefsteak2.html",
-                    "Sea Foods": "seafoods2.html"
+                    "Rice Meal": "ricemeal2.html",
+                    "Silog": "silog2.html",
+                    "Snack": "snacks2.html",
+                    "Drinks": "drinks2.html"
                   };
                   if (links[value]) {
                     window.location.href = links[value];
@@ -149,7 +149,7 @@
               </script>
         <br>
             <div id="extraContent">
-                <p style="font-size: 30px; text-align: center;">Panyang Menu
+                <p style="font-size: 30px; text-align: center;">Benny's Resto Bar
 
                 </p>
             </div>

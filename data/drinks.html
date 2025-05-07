@@ -92,6 +92,24 @@
         .ui-btn1 {
             border-radius: 20px !important;
         }
+        /* Ensure the body can scroll */
+body {
+    overflow: auto; /* Allow scrolling */
+}
+
+/* Make the popup scrollable */
+#popup {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Ensure the popup content inside also scrolls */
+#popup .ui-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -106,10 +124,31 @@
             <a onclick="window.location.href='home2.html'" class="ui-btn">Home</a>
             <a href="#translate" data-rel="popup" data-position-to="window" class="ui-btn">Translate</a>
             <div data-role="popup" id="translate" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
-                <a  onclick="window.location.href='food.html'"   id="closePopup" class="ui-btn ui-btn1" data-theme="a">English</a>
+                <a  onclick="window.location.href='about.html'"   id="closePopup" class="ui-btn ui-btn1" data-theme="a">English</a>
                 <a  href="#" id="disableDarkMode" onclick="$('#translate').popup('close');"  class="ui-btn ui-btn1" data-theme="a">Tagalog</a>
             </div>
             <a onclick="window.location.href='about2.html'" class="ui-btn">About</a>
+            <a href="#darkModePopup" data-rel="popup" data-position-to="window" class="ui-btn">Dark Mode</a>
+            <div data-role="popup" id="darkModePopup" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a href="#" id="disableDarkMode" class="ui-btn ui-btn1" data-theme="a">Light Mode</a>
+                <a href="#" id="enableDarkMode" class="ui-btn ui-btn1" data-theme="a">Dark Mode</a>
+            </div>
+            <a id="exitConfirmButton" class="ui-btn"  data-rel="popup" data-position-to="window" data-transition="pop">Exit</a>
+            <div data-role="popup" id="popupCloseRight" class="ui-content">
+                <p>Are you sure you want to Exit?</p>
+               <a href="#" id="exitButton"  class="ui-btn ui-btn1" data-role="button" data-theme="a">Yes</a>
+                <a href="#" id="closePopup" class="ui-btn ui-btn1" data-role="button" data-theme="a">No</a>
+                </div>
+        </div>
+        <br><br><div data-role="panel" id="overlaypanel" data-position="left" data-display="overlay">
+            <br><br>
+            <a onclick="window.location.href='home.html'" class="ui-btn">Home</a>
+            <a href="#translate" data-rel="popup" data-position-to="window" class="ui-btn">Translate</a>
+            <div data-role="popup" id="translate" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
+                <a   href="#" id="disableDarkMode" onclick="$('#translate').popup('close');" id="closePopup" class="ui-btn ui-btn1" data-theme="a">English</a>
+                <a  onclick="window.location.href='seafoods2.html'"  class="ui-btn ui-btn1" data-theme="a">Tagalog</a>
+            </div>
+            <a onclick="window.location.href='about.html'" class="ui-btn">About</a>
             <a href="#darkModePopup" data-rel="popup" data-position-to="window" class="ui-btn">Dark Mode</a>
             <div data-role="popup" id="darkModePopup" class="ui-content" data-overlay-theme="b" style="max-width:300px; text-align:center;">
                 <a href="#" id="disableDarkMode" class="ui-btn ui-btn1" data-theme="a">Light Mode</a>
@@ -126,7 +165,7 @@
         <hr>
         <div role="main" class="ui-content" style="text-align: center;">
             <a class="animated-heading" href="#popup1" data-rel="popup" data-position-to="window" data-transition="fade">
-                <img src="../includes/img/f1.jpg" height="200" width="200px" alt="">
+                <img src="../includes/img/d1.jpg" height="200" width="200px" alt="">
             </a>
             <center>
                 <a href="#popup1" data-rel="popup" data-position-to="window" data-transition="fade"
@@ -134,28 +173,20 @@
                  >
                     <p class="animated-heading">More Details</p>
                 </a>
-                <!-- <div class="star-rating rate1" data-item="b1">
-                    <input type="hidden" id="rating-value-b1" name="rating" value="0">
-                    <span class="star" data-value="1">&#9733;</span>
-                    <span class="star" data-value="2">&#9733;</span>
-                    <span class="star" data-value="3">&#9733;</span>
-                    <span class="star" data-value="4">&#9733;</span>
-                    <span class="star" data-value="5">&#9733;</span>
-                </div> -->
             </center>            
             <div data-role="popup" id="popup1" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
                 <div style="padding: 10px;">
-                    <img  class="popphoto " src="../includes/img/f1.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <img class="popphoto" src="../includes/img/d1.jpg" style="max-height: 512px; width: 100%; height: auto;">
                     <center>
                         <p >
-                            Ham with Rice P80
+                            Pitcher Iced Tea P180
                         </p>
                     </center>
                 </div>
             </div>
             <hr>
             <a class="animated-heading" href="#popup2" data-rel="popup" data-position-to="window" data-transition="fade">
-                <img src="../includes/img/f2.jpg" height="200" width="200px" alt="">
+                <img src="../includes/img/d2.jpg" height="200" width="200px" alt="">
             </a>
             <center>
                 <a href="#popup2" data-rel="popup" data-position-to="window" data-transition="fade"
@@ -166,155 +197,17 @@
             </center>            
             <div data-role="popup" id="popup2" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
                 <div style="padding: 10px;">
-                    <img class="popphoto" src="../includes/img/f2.jpg" style="max-height: 512px; width: 100%; height: auto;">
+                    <img class="popphoto" src="../includes/img/d2.jpg" style="max-height: 512px; width: 100%; height: auto;">
                     <center>
-                        <p class="animated-heading" >
-                            Tocino with Rice P80
+                        <p>
+                            Pitcher Four Season P180
                         </p>
                     </center>
                 </div>
             </div>
-            <hr>
-            <a class="animated-heading" href="#popup3" data-rel="popup" data-position-to="window" data-transition="fade">
-                <img src="../includes/img/f3.jpg" height="200" width="200px" alt="">
-            </a>
-            <center>
-                <a href="#popup3" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-                    <p class="animated-heading">More Details</p>
-                </a>
-
-            </center>       
-            <div data-role="popup" id="popup3" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-                <div style="padding: 10px;">
-                    <img class="popphoto" src="../includes/img/f3.jpg" style="max-height: 512px; width: 100%; height: auto;">
-                    <center>
-                        <p >
-                            Ham Sandwich P80
-                        </p>
-                    </center>
-                </div>
-            </div>
-            <hr>
-                <a class="animated-heading" href="#popup4" data-rel="popup" data-position-to="window" data-transition="fade">
-                    <img src="../includes/img/f4.jpg" height="200" width="200px" alt="">
-                </a>
-                <center>
-                    <a href="#popup4" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-                        <p class="animated-heading">More Details</p>
-                    </a>
-
-                </center>
-            <div data-role="popup" id="popup4" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-                <div style="padding: 10px;">
-                    <img class="popphoto" src="../includes/img/f4.jpg" style="max-height: 512px; width: 100%; height: auto;">
-                    <center>
-                        <p >
-                            Beefsteak with Egg and Rice P120
-                        </p>
-                    </center>
-                </div>
-            </div>
-            <hr>
-            <a class="animated-heading" href="#popup5" data-rel="popup" data-position-to="window" data-transition="fade">
-                <img src="../includes/img/f5.jpg" height="200" width="200px" alt="">
-            </a>
-            <center>
-                <a href="#popup5" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-                    <p class="animated-heading">More Details</p>
-                </a>
-
-            </center>
-        <div data-role="popup" id="popup5" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-            <div style="padding: 10px;">
-                <img class="popphoto" src="../includes/img/f5.jpg" style="max-height: 512px; width: 100%; height: auto;">
-                <center>
-                    <p >
-                        Hungarian Sausage P80
-                    </p>
-                </center>
-            </div>
-        </div>
-        <hr>
-        <a class="animated-heading" href="#popup6" data-rel="popup" data-position-to="window" data-transition="fade">
-            <img src="../includes/img/f6.jpg" height="200" width="200px" alt="">
-        </a>
-        <center>
-            <a href="#popup6" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-                <p class="animated-heading">More Details</p>
-            </a>
-
-        </center>
-    <div data-role="popup" id="popup6" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-        <div style="padding: 10px;">
-            <img class="popphoto" src="../includes/img/f6.jpg" style="max-height: 512px; width: 100%; height: auto;">
-            <center>
-                <p >
-                    Beefsteak with Egg and Rice P120
-                </p>
-            </center>
-        </div>
-    </div>
-    <hr>
-    <a class="animated-heading" href="#popup7" data-rel="popup" data-position-to="window" data-transition="fade">
-        <img src="../includes/img/f7.jpg" height="200" width="200px" alt="">
-    </a>
-    <center>
-        <a href="#popup7" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-            <p class="animated-heading">More Details</p>
-        </a>
-
-    </center>
-<div data-role="popup" id="popup7" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-    <div style="padding: 10px;">
-        <img class="popphoto" src="../includes/img/f7.jpg" style="max-height: 512px; width: 100%; height: auto;">
-        <center>
-            <p >
-                Tocino with Rice P120
-            </p>
-        </center>
-    </div>
-</div>
-<hr>
-<a class="animated-heading" href="#popup8" data-rel="popup" data-position-to="window" data-transition="fade">
-    <img src="../includes/img/f8.jpg" height="200" width="200px" alt="">
-</a>
-<center>
-    <a href="#popup8" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-        <p class="animated-heading">More Details</p>
-    </a>
-
-</center>
-<div data-role="popup" id="popup8" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-<div style="padding: 10px;">
-    <img class="popphoto" src="../includes/img/f8.jpg" style="max-height: 512px; width: 100%; height: auto;">
-    <center>
-        <p >
-            Fried Rice and Hotdog with Egg        </p>
-    </center>
-</div>
-</div>
-<hr>
-<a class="animated-heading" href="#popup9" data-rel="popup" data-position-to="window" data-transition="fade">
-    <img src="../includes/img/f9.jpg" height="200" width="200px" alt="">
-</a>
-<center>
-    <a href="#popup9" data-rel="popup" data-position-to="window" data-transition="fade" style="text-decoration: none; color: rgb(75, 72, 72);">
-        <p class="animated-heading">More Details</p>
-    </a>
-
-</center>
-<div data-role="popup" id="popup9" data-overlay-theme="b" data-corners="false" style="max-height: 80vh; overflow-y: auto;">
-<div style="padding: 10px;">
-    <img class="popphoto" src="../includes/img/f9.jpg" style="max-height: 512px; width: 100%; height: auto;">
-    <center>
-        <p >
-            Hungarian with Rice P80
-        </p>
-    </center>
-</div>
-</div>
             <br><br><br><br><br><br><br>
         </div>
+     
         <script src="../includes/js/js/index.js"></script>
         <script type="text/javascript">
             // Toggle dark mode manually (if needed from elsewhere)
